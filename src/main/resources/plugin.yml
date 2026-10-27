@@ -1,0 +1,6 @@
+name: DragonEggLocator
+version: '1.0.0'
+main: com.peecer.dragonegglocator.DragonEggLocatorPlugin
+api-version: '1.21.6'
+author: peecer
+description: Only the player carrying the Dragon Egg can use the vanilla locator bar.

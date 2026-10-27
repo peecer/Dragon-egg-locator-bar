@@ -12,10 +12,18 @@ A lightweight, server-side Paper plugin for **Minecraft Java 1.21.6+**. No clien
 - The plugin enables the world's `locator_bar` / `locatorBar` game rule automatically. **Do not set the game rule to false**: this would prevent even the egg holder from seeing the bar. The plugin instead sets `waypoint_receive_range` to 0 for everyone except the egg holder.
 - Sneaking, invisibility, and head disguises still hide players from the vanilla locator bar, as usual.
 
+## Dragon Egg protection
+
+- **Dropped egg items never expire from normal item aging.** Uses Paper's unlimited-lifetime flag and cancels item despawn as a fallback, including eggs that already existed when the plugin starts or a chunk loads.
+- **Dropped eggs cannot burn in fire or lava, or take damage from TNT, creepers, explosions, or other normal entity damage.** The item remains pick-up-able by players.
+- **Placed Dragon Egg blocks cannot be destroyed by block/entity explosions** such as TNT, creepers, or respawn anchors. Other blocks around them can still explode normally.
+- Also cancels block burning if an egg block is targeted.
+- **Not a guarantee against** administrative commands, creative-mode manual deletion, third-party plugins deliberately removing entities/blocks, void item removal, or deleting the world. These actions may bypass normal Bukkit/Paper damage and despawn events.
+
 ## Install
 
 1. Use a **Paper** or compatible server running Minecraft Java **1.21.6 or newer** (Java 21+; use the Java version required by your server).
-2. Download the `DragonEggLocator-1.0.0.jar` from a successful GitHub Actions build, or build it yourself (see below).
+2. Download the `DragonEggLocator-1.1.0.jar` from a successful GitHub Actions build, or build it yourself (see below).
 3. Put the JAR into the server's `plugins/` directory.
 4. Restart the server. That's it.
 
@@ -25,7 +33,7 @@ A lightweight, server-side Paper plugin for **Minecraft Java 1.21.6+**. No clien
 mvn clean package
 ```
 
-Output: `target/DragonEggLocator-1.0.0.jar`.
+Output: `target/DragonEggLocator-1.1.0.jar`.
 The Paper API is `provided`; the final JAR does not bundle it.
 
 ## Design and limitations

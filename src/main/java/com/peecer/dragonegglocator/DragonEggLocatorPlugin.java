@@ -36,6 +36,9 @@ public final class DragonEggLocatorPlugin extends JavaPlugin implements Listener
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
+        DragonEggProtectionListener eggProtection = new DragonEggProtectionListener();
+        getServer().getPluginManager().registerEvents(eggProtection, this);
+        eggProtection.protectLoadedEggs(getServer().getWorlds());
         enableLocatorGameRules();
         refreshHolders();
 
